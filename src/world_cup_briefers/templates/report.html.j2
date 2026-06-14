@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>{{ report.report.title }}</title>
+  <style>
+    :root { color-scheme: light dark; --ink:#172033; --muted:#5f6f86; --card:#ffffff; --line:#d8e1ec; --blue:#0b4f8a; --gold:#f6c655; --red:#b4232c; --green:#247a58; }
+    body { margin:0; font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#eef3f8; color:var(--ink); }
+    main { max-width:1120px; margin:0 auto; padding:28px; }
+    .hero { border-radius:28px; padding:30px; background:linear-gradient(135deg,#06233f,#0b4f8a 55%,#173f5f); color:white; box-shadow:0 20px 48px rgba(9,30,66,.22); }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; opacity:.85; font-weight:800; }
+    h1 { margin:.2rem 0 .4rem; font-size:clamp(2rem,5vw,4.2rem); line-height:.95; }
+    h2 { margin:0 0 14px; font-size:1.45rem; }
+    h3 { margin:.1rem 0 .35rem; }
+    .thesis { max-width:860px; font-size:1.18rem; opacity:.96; }
+    .fixture { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-top:24px; }
+    .team { flex:1 1 260px; display:flex; align-items:center; gap:14px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:14px; }
+    .team:last-child { flex-direction:row-reverse; text-align:right; }
+    .code { display:inline-block; padding:3px 8px; border-radius:999px; background:rgba(255,255,255,.18); font-weight:900; letter-spacing:.08em; }
+    .vs { font-weight:1000; font-size:1.5rem; }
+    .mini-flag { width:76px; height:46px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.22); background:white; }
+    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:20px; }
+    .pill { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); border-radius:16px; padding:10px 12px; }
+    section { margin-top:22px; border-radius:24px; background:var(--card); border:1px solid var(--line); padding:22px; box-shadow:0 10px 26px rgba(9,30,66,.08); }
+    .section-blue { border-top:8px solid var(--blue); } .section-gold { border-top:8px solid var(--gold); } .section-red { border-top:8px solid var(--red); } .section-green { border-top:8px solid var(--green); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .card { border:1px solid var(--line); border-radius:18px; padding:16px; background:#fbfdff; }
+    .label { font-size:.76rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:900; }
+    table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:14px; }
+    th,td { padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#edf4fb; font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; }
+    .muted { color:var(--muted); }
+    @media (prefers-color-scheme: dark) { body{background:#101723;color:#e8eef7}.card,section{background:#172033;border-color:#2a384d}.card{background:#1d293b}th{background:#25344a}.muted{color:#a8b5c8} }
+  </style>
+</head>
+<body>
+<main>
+  <header class='hero'>
+    <div class='eyebrow'>{{ report.report.competition }} · {{ report.report.stage }} · {{ report.report.status|status_label }}</div>
+    <h1>{{ report.report.title }}</h1>
+    <p class='thesis'>{{ report.report.thesis }}</p>
+    <div class='fixture'>
+      <div class='team'>{{ flag_svg(report.match.team_a, report.match.team_a|team_code) }}<div><span class='code'>{{ report.match.team_a|team_code }}</span><h2>{{ report.match.team_a }}</h2></div></div>
+      <div class='vs'>vs</div>
+      <div class='team'>{{ flag_svg(report.match.team_b, report.match.team_b|team_code) }}<div><span class='code'>{{ report.match.team_b|team_code }}</span><h2>{{ report.match.team_b }}</h2></div></div>
+    </div>
+    <div class='meta'>
+      <div class='pill'><strong>Kickoff</strong><br>{{ report.match.kickoff_local }} {{ report.match.kickoff_timezone }}</div>
+      <div class='pill'><strong>Venue</strong><br>{{ report.match.venue.name }}, {{ report.match.venue.city }}</div>
+      <div class='pill'><strong>Capacity</strong><br>{{ report.match.venue.capacity|comma_int }}</div>
+      <div class='pill'><strong>Report time</strong><br>{{ report.report.generated_at|fallback('Not specified') }}</div>
+    </div>
+  </header>
+
+  <section class='section-gold'>
+    <h2>90-Second Brief</h2>
+    <div class='grid'>{% for item in report.brief %}<article class='card'><div class='label'>{{ item.label }}</div><p>{{ item.text }}</p></article>{% endfor %}</div>
+  </section>
+
+  <section class='section-blue'>
+    <h2>Current Cup Status</h2>
+    <p>{{ report.cup_status.summary }}</p>
+    <table><thead><tr><th>Team</th><th>Points</th><th>Position</th><th>Note</th></tr></thead><tbody>
+      {% for team in report.cup_status.teams %}<tr><td>{{ team.name }}</td><td>{{ team.points }}</td><td>{{ team.position }}</td><td>{{ team.note }}</td></tr>{% endfor %}
+    </tbody></table>
+  </section>
+
+  <section class='section-green'>
+    <h2>Three Possible Futures</h2>
+    <table><thead><tr><th>Outcome</th><th>{{ report.match.team_a }}</th><th>{{ report.match.team_b }}</th><th>Wider tournament effect</th></tr></thead><tbody>
+      {% for future in report.possible_futures %}<tr><td><strong>{{ future.outcome }}</strong></td><td>{{ future.team_a }}</td><td>{{ future.team_b }}</td><td>{{ future.wider }}</td></tr>{% endfor %}
+    </tbody></table>
+  </section>
+
+  <section class='section-blue'>
+    <h2>Team Story Cards</h2>
+    <div class='grid'>{% for team in report.teams %}<article class='card'><h3>{{ team.name }}</h3><p><strong>Classic:</strong> {{ team.classic_story }}</p><p><strong>Modern:</strong> {{ team.modern_story }}</p><p><strong>Interesting:</strong> {{ team.truly_interesting }}</p><p><strong>Watch:</strong> {{ team.what_to_watch }}</p></article>{% endfor %}</div>
+  </section>
+
+  <section class='section-red'>
+    <h2>Players to Watch</h2>
+    <div class='grid'>{% for player in report.players_to_watch %}<article class='card'><div class='label'>{{ player.team }} · {{ player.category }}</div><h3>{{ player.name }}</h3><p>{{ player.why }}</p><p class='muted'>{{ player.talking_point }}</p></article>{% endfor %}</div>
+  </section>
+
+  <section class='section-green'>
+    <h2>Venue, Crowd, Weather</h2>
+    <div class='grid'>
+      <article class='card'><div class='label'>Crowd</div><p>{{ report.crowd_weather.crowd_notes|fallback('Unknown') }}</p></article>
+      <article class='card'><div class='label'>Weather</div><p>{{ report.crowd_weather.weather|fallback('Unknown') }}</p></article>
+      <article class='card'><div class='label'>Local context</div><p>{{ report.crowd_weather.local_context|fallback('Unknown') }}</p></article>
+    </div>
+  </section>
+
+  <section class='section-red'>
+    <h2>Discipline, Availability, and Health</h2>
+    <div class='grid'>{% for item in report.discipline_availability %}<article class='card'><h3>{{ item.team }}</h3><p><strong>Out:</strong> {{ item.confirmed_out|join_list }}</p><p><strong>Doubtful/managed:</strong> {{ item.doubtful_or_managed|join_list }}</p><p><strong>Card risk:</strong> {{ item.card_risk|join_list }}</p><p>{{ item.notes }}</p></article>{% endfor %}</div>
+  </section>
+
+  <section class='section-gold'>
+    <h2>Country and Culture Notes</h2>
+    <div class='grid'>{% for item in report.country_culture_notes %}<article class='card'><h3>{{ item.country }}</h3><p>{{ item.classic }}</p><p>{{ item.modern }}</p><p><strong>Kid question:</strong> {{ item.kid_question }}</p></article>{% endfor %}</div>
+  </section>
+
+  {% if report.time_capsule is defined and report.time_capsule.enabled %}
+  <section class='section-blue'><h2>{{ report.time_capsule.title }}</h2><p>{{ report.time_capsule.setup }}</p><div class='grid'>{% for item in report.time_capsule['items'] %}<article class='card'><div class='label'>{{ item.lane }}</div><p>{{ item.text }}</p></article>{% endfor %}</div></section>
+  {% endif %}
+
+  <section class='section-blue'><h2>What to Say at Kickoff</h2><p>{{ report.kickoff_paragraph }}</p></section>
+
+  <section class='section-green'>
+    <h2>Sources and Confidence</h2>
+    <div class='grid'>
+      <article class='card'><h3>High</h3><ul>{% for note in report.sources_confidence.get('high', []) %}<li>{{ note }}</li>{% else %}<li>None listed.</li>{% endfor %}</ul></article>
+      <article class='card'><h3>Medium</h3><ul>{% for note in report.sources_confidence.get('medium', []) %}<li>{{ note }}</li>{% else %}<li>None listed.</li>{% endfor %}</ul></article>
+      <article class='card'><h3>Watch</h3><ul>{% for note in report.sources_confidence.get('watch', []) %}<li>{{ note }}</li>{% else %}<li>None listed.</li>{% endfor %}</ul></article>
+      <article class='card'><h3>Unknown</h3><ul>{% for note in report.sources_confidence.get('unknown', []) %}<li>{{ note }}</li>{% else %}<li>None listed.</li>{% endfor %}</ul></article>
+    </div>
+  </section>
+</main>
+</body>
+</html>
