@@ -1,0 +1,134 @@
+# {{ report.report.title }}
+
+**Competition:** {{ report.report.competition }} · {{ report.report.stage }}  
+**Kickoff:** {{ report.match.kickoff_local }} {{ report.match.kickoff_timezone }}  
+**Venue:** {{ report.match.venue.name }}, {{ report.match.venue.city }} · capacity {{ report.match.venue.capacity|comma_int }}  
+**Status:** {{ report.report.status|status_label }}
+
+{{ report.report.thesis }}
+
+## 90-Second Brief
+
+{% for item in report.brief -%}
+- **{{ item.label }}:** {{ item.text }}
+{% endfor %}
+
+## Current Cup Status
+
+{{ report.cup_status.summary }}
+
+| Team | Points | Position | Note |
+|---|---:|---:|---|
+{% for team in report.cup_status.teams -%}
+| {{ team.name }} | {{ team.points }} | {{ team.position }} | {{ team.note }} |
+{% endfor %}
+
+## Three Possible Futures
+
+| Outcome | {{ report.match.team_a }} | {{ report.match.team_b }} | Wider tournament effect |
+|---|---|---|---|
+{% for future in report.possible_futures -%}
+| {{ future.outcome }} | {{ future.team_a }} | {{ future.team_b }} | {{ future.wider }} |
+{% endfor %}
+
+## Team Story Cards
+
+{% for team in report.teams -%}
+### {{ team.name }}
+
+- **Classic:** {{ team.classic_story }}
+- **Modern:** {{ team.modern_story }}
+- **Truly interesting:** {{ team.truly_interesting }}
+- **Country snapshot:** {{ team.country_snapshot }}
+- **What to watch:** {{ team.what_to_watch }}
+
+{% endfor %}
+
+## Players to Watch
+
+| Player | Team | Category | Why | Talking point |
+|---|---|---|---|---|
+{% for player in report.players_to_watch -%}
+| {{ player.name }} | {{ player.team }} | {{ player.category }} | {{ player.why }} | {{ player.talking_point }} |
+{% endfor %}
+
+## Tactical Watchlist
+
+{% for item in report.tactical_watchlist -%}
+- **{{ item.label }}:** {{ item.text }}
+{% endfor %}
+
+## Venue, Crowd, and Weather
+
+- **Crowd:** {{ report.crowd_weather.crowd_notes|fallback('Unknown') }}
+- **Expected feel:** {{ report.crowd_weather.expected_feel|fallback('Unknown') }}
+- **Weather:** {{ report.crowd_weather.weather|fallback('Unknown') }}
+- **Local context:** {{ report.crowd_weather.local_context|fallback('Unknown') }}
+
+## Discipline, Availability, and Health
+
+{% for item in report.discipline_availability -%}
+### {{ item.team }}
+
+- **Confirmed out:** {{ item.confirmed_out|join_list }}
+- **Doubtful / managed:** {{ item.doubtful_or_managed|join_list }}
+- **Card risk:** {{ item.card_risk|join_list }}
+- **Notes:** {{ item.notes|fallback('No additional notes.') }}
+
+{% endfor %}
+
+## Country and Culture Notes
+
+{% for item in report.country_culture_notes -%}
+### {{ item.country }}
+
+- **Classic:** {{ item.classic }}
+- **Modern:** {{ item.modern }}
+- **Truly interesting:** {{ item.truly_interesting }}
+- **Kid question:** {{ item.kid_question }}
+
+{% endfor %}
+
+{% if report.time_capsule is defined and report.time_capsule.enabled -%}
+## {{ report.time_capsule.title }}
+
+{{ report.time_capsule.setup }}
+
+{% for item in report.time_capsule['items'] -%}
+- **{{ item.lane }}:** {{ item.text }}
+{% endfor %}
+{% endif -%}
+
+## What to Say at Kickoff
+
+{{ report.kickoff_paragraph }}
+
+## Source / Confidence Notes
+
+### High confidence
+{% for note in report.sources_confidence.get('high', []) -%}
+- {{ note }}
+{% else -%}
+- None listed.
+{% endfor %}
+
+### Medium confidence
+{% for note in report.sources_confidence.get('medium', []) -%}
+- {{ note }}
+{% else -%}
+- None listed.
+{% endfor %}
+
+### Watch
+{% for note in report.sources_confidence.get('watch', []) -%}
+- {{ note }}
+{% else -%}
+- None listed.
+{% endfor %}
+
+### Unknown / not found
+{% for note in report.sources_confidence.get('unknown', []) -%}
+- {{ note }}
+{% else -%}
+- None listed.
+{% endfor %}
