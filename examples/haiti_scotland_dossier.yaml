@@ -1,0 +1,173 @@
+report:
+  title: Haiti vs Scotland — Match Dossier
+  competition: FIFA World Cup 2026
+  stage: Group C
+  status: pre_match
+  generated_at: 2026-06-13 19:15 CT
+  thesis: Brazil and Morocco drawing 1-1 has opened Group C; Haiti vs Scotland now becomes the first real door either side can walk through.
+match:
+  team_a: Haiti
+  team_b: Scotland
+  kickoff_local: 2026-06-13 20:00
+  kickoff_display: 8:00 PM CT
+  kickoff_timezone: America/Chicago
+  venue:
+    name: Boston Stadium / Gillette Stadium
+    city: Foxborough
+    region: Massachusetts
+    country: United States
+    capacity: 65878
+  visuals:
+    flag_style: inline_embedded_svg
+    team_a_flag_asset: embedded_inline_svg_haiti
+    team_b_flag_asset: embedded_inline_svg_scotland
+    flag_credit: Embedded simplified SVG flag renderings; no external image loading required.
+brief:
+  - label: Stakes
+    text: Brazil and Morocco are both on one point after their draw. A winner here can take early command of Group C.
+  - label: Pressure point
+    text: Scotland are expected to win this fixture; Haiti can make the group chaotic by taking even one point.
+  - label: Storyline
+    text: Scotland are back at the World Cup after a long absence. Haiti are back after an even longer one, carrying a diaspora and identity story.
+  - label: Watch for
+    text: Whether Scotland turn expectation into calm control, or whether Haiti make the match emotional, physical, and uncomfortable.
+  - label: Conversation starter
+    text: Why can a draw between Brazil and Morocco completely change the stakes of a game neither team played in?
+cup_status:
+  summary: Brazil and Morocco opened Group C with a draw, so Haiti and Scotland can immediately reshape the group table.
+  advancement_rules: Top two teams in each group advance, plus selected third-place teams across the tournament.
+  teams:
+    - name: Haiti
+      points: 0
+      position: 4th before kickoff
+      remaining_fixtures: [Brazil, Morocco]
+      need: A point would be meaningful; a win would be one of the tournament’s first major stories.
+      note: Needs to protect goal difference and make one match weird.
+    - name: Scotland
+      points: 0
+      position: 3rd before kickoff
+      remaining_fixtures: [Morocco, Brazil]
+      need: A win is the clean path. Anything less turns Morocco and Brazil into pressure games.
+      note: Best chance to bank control before the harder fixtures.
+  advancement_read: Scotland’s path improves sharply with a win. Haiti likely need at least a draw to keep a realistic route alive before facing Brazil and Morocco.
+possible_futures:
+  - outcome: Haiti win
+    team_a: A historic result and an instant Group C shock.
+    team_b: A damaging miss for Scotland before the two hardest fixtures.
+    wider: Group C becomes chaotic immediately.
+  - outcome: Draw
+    team_a: A credible point and proof Haiti belong in the group.
+    team_b: Not fatal, but a missed chance after Brazil and Morocco opened the door.
+    wider: Brazil and Morocco become the biggest beneficiaries of Scotland dropping points.
+  - outcome: Scotland win
+    team_a: Haiti still have pride and spoiler routes, but the path narrows sharply.
+    team_b: Scotland go top and make Morocco/Brazil meaningful rather than desperate.
+    wider: The group becomes a proper four-team story.
+teams:
+  - name: Haiti
+    country: Haiti
+    classic_story: Haiti last reached the men’s World Cup in 1974, making this return feel like a time capsule.
+    modern_story: A diaspora-heavy squad carries a wider family, migration, and identity story.
+    truly_interesting: For many players and fans, representing Haiti is a connection to family, heritage, and national pride across borders.
+    country_snapshot: Caribbean country on Hispaniola, sharing the island with the Dominican Republic; capital Port-au-Prince; languages include Haitian Creole and French.
+    what_to_watch: Can Haiti make the match tense and emotional without losing defensive structure?
+  - name: Scotland
+    country: Scotland
+    classic_story: A proud football country with huge traveling support and decades of group-stage frustration.
+    modern_story: 'Back on the world stage with a chance to break an old barrier: Scotland have never advanced beyond a World Cup group stage.'
+    truly_interesting: Scotland compete separately from England, Wales, and Northern Ireland in football, which is a good way to explain how the UK works differently in sport.
+    country_snapshot: Northern part of Great Britain with its own legal, educational, cultural, and football identity; capital Edinburgh.
+    what_to_watch: Can Scotland turn expectation into controlled football instead of anxiety?
+players_to_watch:
+  - name: Scott McTominay
+    team: Scotland
+    category: Can win it
+    why: Arrives late from midfield and attacks the box.
+    risk_or_opportunity: If Scotland struggle to create clean chances, his late runs become vital.
+    talking_point: Watch for him appearing near the penalty area rather than standing still in midfield.
+  - name: Scotland center backs
+    team: Scotland
+    category: Can break it
+    why: One rash clearance, bad foul, or poor transition can give Haiti the emotional opening.
+    risk_or_opportunity: They need to defend counters calmly.
+    talking_point: Defending well is not just tackling; it is staying positioned when the crowd gets tense.
+  - name: Haiti goalkeeper
+    team: Haiti
+    category: Pressure valve
+    why: If Haiti absorb pressure, saves and calm distribution can keep them in the match.
+    risk_or_opportunity: A strong first half can make Scotland impatient.
+    talking_point: Goalkeepers can change an underdog match without scoring.
+  - name: Haiti wide attackers
+    team: Haiti
+    category: Substitution swing
+    why: Fresh legs after 60 minutes could create the one counterattack Haiti need.
+    risk_or_opportunity: Best if Scotland are stretched, frustrated, or chasing.
+    talking_point: Underdogs often need one clean transition more than constant pressure.
+tactical_watchlist:
+  - label: If Scotland dominate possession
+    text: The question is whether they create clean chances or just recycle the ball nervously.
+  - label: If Haiti score first
+    text: The match becomes a test of Scottish patience and crowd emotion.
+  - label: Set pieces
+    text: Scotland may see corners and free kicks as a route through if open play gets crowded.
+  - label: After 60 minutes
+    text: Fatigue and substitutions may matter more than the opening game plan.
+  - label: One thing to teach a new viewer
+    text: A team can be winning the story even before it is winning the score.
+crowd_weather:
+  stadium_capacity: 65878
+  expected_feel: strong / lively
+  crowd_notes: 'Likely lively: Scotland traveling support plus Haitian diaspora presence in the region.'
+  weather: Clear or mostly clear around kickoff, warm but playable.
+  local_context: Neutral-site World Cup match in a major Northeast sports market.
+  fan_atmosphere: 'Could feel more balanced than the rankings suggest: Scotland bring travel culture; Haiti bring diaspora emotion.'
+discipline_availability:
+  - team: Haiti
+    confirmed_out: []
+    doubtful_or_managed: []
+    card_risk: []
+    notes: Confirm lineups and availability close to kickoff.
+  - team: Scotland
+    confirmed_out:
+      - Billy Gilmour, reported knee injury
+    doubtful_or_managed:
+      - Scott McTominay illness scare, expected to start in prior reporting
+    card_risk: []
+    notes: Confirm final XI and late fitness updates before publishing.
+country_culture_notes:
+  - country: Haiti
+    classic: The Haitian Revolution is one of the most significant independence stories in world history.
+    modern: Haitian identity is strongly shaped by diaspora communities across North America and beyond.
+    truly_interesting: A national team can become a way for diaspora families to feel connected across borders.
+    kid_question: Why might a player born in one country choose to represent another?
+  - country: Scotland
+    classic: Scotland has one of the oldest football cultures in the world.
+    modern: Scottish fans remain among the most visible and musical traveling supporters.
+    truly_interesting: Scotland can be part of the UK politically while competing separately in football.
+    kid_question: Why do England, Scotland, Wales, and Northern Ireland have separate football teams?
+time_capsule:
+  enabled: true
+  title: The Last Time Haiti Were Here
+  setup: 'Haiti last played at the men’s World Cup in 1974. To make that distance feel real:'
+  items:
+    - lane: On TV
+      text: Happy Days debuted in 1974.
+    - lane: In music
+      text: The early 1970s were still the era of vinyl, radio, and variety shows.
+    - lane: In technology
+      text: No smartphones, no streaming, no internet highlights.
+    - lane: For young viewers
+      text: A child who watched Haiti in 1974 could now be a grandparent.
+kickoff_paragraph: This is a match about opportunity. Brazil and Morocco left the door open; now Haiti and Scotland get to show whether they can step through it.
+sources_confidence:
+  high:
+    - Kickoff, venue, and Group C context from the current match schedule.
+    - Brazil vs Morocco 1-1 result from current match reporting used in the earlier dossier.
+  medium:
+    - Crowd feel based on venue capacity, expected traveling support, and diaspora context.
+    - Player availability notes based on pre-match reporting and should be checked against official lineups.
+  watch:
+    - Final lineups, late injuries, exact weather at kickoff, and official attendance.
+  unknown:
+    - Official attendance before kickoff.
+    - Confirmed Haiti XI at the time this reusable dossier was created.
