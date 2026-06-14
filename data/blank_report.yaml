@@ -1,0 +1,122 @@
+report:
+  title: Team A vs Team B — Match Dossier
+  competition: FIFA World Cup 2026
+  stage: Group X
+  status: pre_match
+  generated_at: YYYY-MM-DD HH:MM CT
+  thesis: One-sentence explanation of why this match matters.
+match:
+  team_a: Team A
+  team_b: Team B
+  kickoff_local: YYYY-MM-DD HH:MM
+  kickoff_display: H:MM PM CT
+  kickoff_timezone: America/Chicago
+  venue:
+    name: Stadium Name
+    city: City
+    region: Region or state
+    country: Country
+    capacity: 0
+  visuals:
+    flag_style: inline_embedded_svg
+    flag_credit: Embedded simplified SVG flag renderings; no external image loading required.
+brief:
+  - label: Stakes
+    text: What changes because of this match?
+  - label: Watch for
+    text: What should casual viewers track?
+cup_status:
+  summary: Current group or knockout context.
+  advancement_rules: Top two teams in each group advance, plus selected third-place teams across the tournament.
+  teams:
+    - name: Team A
+      points: 0
+      position: TBD
+      remaining_fixtures: []
+      need: What Team A needs from this match.
+      note: Short status note.
+    - name: Team B
+      points: 0
+      position: TBD
+      remaining_fixtures: []
+      need: What Team B needs from this match.
+      note: Short status note.
+  advancement_read: Qualitative advancement read; do not invent odds.
+possible_futures:
+  - outcome: Team A win
+    team_a: What it means for Team A.
+    team_b: What it means for Team B.
+    wider: Wider tournament effect.
+  - outcome: Draw
+    team_a: What it means for Team A.
+    team_b: What it means for Team B.
+    wider: Wider tournament effect.
+  - outcome: Team B win
+    team_a: What it means for Team A.
+    team_b: What it means for Team B.
+    wider: Wider tournament effect.
+teams:
+  - name: Team A
+    country: Country A
+    classic_story: Long-term football identity or historical note.
+    modern_story: Current squad, coach, form, or qualification path.
+    truly_interesting: Human, cultural, geopolitical, or surprising note.
+    country_snapshot: Compact geography, population, language, capital, or diaspora note.
+    what_to_watch: One football behavior to watch.
+  - name: Team B
+    country: Country B
+    classic_story: Long-term football identity or historical note.
+    modern_story: Current squad, coach, form, or qualification path.
+    truly_interesting: Human, cultural, geopolitical, or surprising note.
+    country_snapshot: Compact geography, population, language, capital, or diaspora note.
+    what_to_watch: One football behavior to watch.
+players_to_watch:
+  - name: Player Name
+    team: Team A
+    category: Can win it
+    why: Why this player matters.
+    risk_or_opportunity: Main risk or opportunity.
+    talking_point: Kid-friendly viewing cue.
+tactical_watchlist:
+  - label: Tactical cue
+    text: What to watch and why it matters.
+crowd_weather:
+  stadium_capacity: 0
+  expected_feel: Unknown
+  crowd_notes: Unknown
+  weather: Unknown
+  local_context: Unknown
+  fan_atmosphere: Unknown
+discipline_availability:
+  - team: Team A
+    confirmed_out: []
+    doubtful_or_managed: []
+    card_risk: []
+    notes: Check official lineups close to kickoff.
+  - team: Team B
+    confirmed_out: []
+    doubtful_or_managed: []
+    card_risk: []
+    notes: Check official lineups close to kickoff.
+country_culture_notes:
+  - country: Country A
+    classic: Country/history note.
+    modern: Current context note.
+    truly_interesting: Respectful teachable detail.
+    kid_question: Question to ask a young viewer.
+  - country: Country B
+    classic: Country/history note.
+    modern: Current context note.
+    truly_interesting: Respectful teachable detail.
+    kid_question: Question to ask a young viewer.
+time_capsule:
+  enabled: false
+  title: Optional time capsule
+  setup: Optional framing sentence.
+  items: []
+kickoff_paragraph: One concise recommendation for how James should frame the match for his household.
+sources_confidence:
+  high: []
+  medium: []
+  watch: []
+  unknown: []
