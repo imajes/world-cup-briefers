@@ -1,0 +1,93 @@
+# Annotated YAML contract for World Cup Briefers.
+# Keep this file as documentation; use examples/*.yaml or data/blank_report.yaml as runnable inputs.
+report:
+  title: string
+  competition: string
+  stage: string
+  status: pre_match | live | halftime | full_time | post_match
+  generated_at: local timestamp string
+  thesis: one-sentence match thesis
+match:
+  team_a: string
+  team_b: string
+  kickoff_local: local kickoff timestamp
+  kickoff_display: human-readable kickoff time
+  kickoff_timezone: IANA timezone or display timezone
+  venue:
+    name: string
+    city: string
+    region: string
+    country: string
+    capacity: integer
+  visuals:
+    flag_style: inline_embedded_svg
+    flag_credit: source or rendering note
+brief:
+  - label: Stakes | Pressure | Storyline | Watch for | Conversation starter
+    text: short paragraph
+cup_status:
+  summary: short group or knockout status
+  advancement_rules: rules that matter to this match
+  teams:
+    - name: string
+      points: integer
+      position: string or integer
+      remaining_fixtures: [string]
+      need: short result need
+      note: short table note
+  advancement_read: qualitative read; no invented odds
+possible_futures:
+  - outcome: Team A win | Draw | Team B win
+    team_a: consequence for Team A
+    team_b: consequence for Team B
+    wider: wider tournament implication
+teams:
+  - name: string
+    country: string
+    classic_story: historic football identity or World Cup memory
+    modern_story: current squad/coach/form/qualification path
+    truly_interesting: human, cultural, geopolitical, or surprising detail
+    country_snapshot: compact geography/culture/language/diaspora note
+    what_to_watch: casual-viewer tactical cue
+players_to_watch:
+  - name: string
+    team: string
+    category: Can win it | Can break it | Pressure valve | Substitution swing | other
+    why: why the player matters
+    risk_or_opportunity: what could go right or wrong
+    talking_point: kid-friendly viewing cue
+tactical_watchlist:
+  - label: short label
+    text: tactical or game-state cue
+crowd_weather:
+  stadium_capacity: integer
+  expected_feel: short qualitative label
+  crowd_notes: reliable crowd/ticket context if available
+  weather: relevant weather note
+  local_context: venue/city/travel/security/community context
+  fan_atmosphere: likely in-stadium feel
+discipline_availability:
+  - team: string
+    confirmed_out: [string]
+    doubtful_or_managed: [string]
+    card_risk: [string]
+    notes: short availability caveat
+country_culture_notes:
+  - country: string
+    classic: historical/cultural note
+    modern: current context note
+    truly_interesting: respectful teaching detail
+    kid_question: family-viewing question
+time_capsule:
+  enabled: boolean
+  title: string
+  setup: string
+  items:
+    - lane: string
+      text: string
+kickoff_paragraph: concise household framing recommendation
+sources_confidence:
+  high: [string]
+  medium: [string]
+  watch: [string]
+  unknown: [string]
