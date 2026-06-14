@@ -72,7 +72,7 @@ uv run world-cup-briefer examples/haiti_scotland_dossier.yaml \
 │       ├── report.html.j2
 │       └── report.md.j2
 ├── templates/
-│   └── report_template.html       # editable mirror of the HTML template
+│   └── report_template.html       # editable starter HTML template
 └── tests/
 ```
 
